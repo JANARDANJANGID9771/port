@@ -2,7 +2,7 @@
   "version": 2,
   "builds": [
     {
-      "src": ".",
+      "src": "index.html",
       "use": "@vercel/static"
     },
     {
@@ -12,12 +12,17 @@
   ],
   "routes": [
     {
+      "src": "/(.*\\.(?:png|jpg|jpeg|svg|gif|ico|css|js))",
+      "dest": "/$1"
+    },
+    {
       "src": "/api/server",
       "dest": "/api/server.js"
     },
     {
       "src": "/(.*)",
-      "dest": "/$1"
+      "dest": "/index.html"
     }
   ]
 }
+
